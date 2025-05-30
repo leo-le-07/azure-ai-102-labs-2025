@@ -17,6 +17,7 @@ print(f"Key: {key}")
 
 client = ImageAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
+# Replace this URL with the actual image URL we want to analyze
 image_url = "https://i.ibb.co/GfxGtQ4P/IMG-1148-1.jpg"
 
 result = client.analyze_from_url(
