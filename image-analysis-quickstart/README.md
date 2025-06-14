@@ -28,31 +28,34 @@ This project demonstrates how to use the Azure AI Vision Image Analysis 4.0 SDK 
 
 ## Usage
 
-Run the main script:
+Run the main script with a local image path:
 
 ```sh
-python image-analysis-quickstart/main.py
+python main.py path/to/your/image.jpg
 ```
 
 This will:
 - Connect to Azure AI Vision using your credentials
-- Analyze a sample image from a URL
-- Print the generated caption and any detected text (OCR) to the console
+- Analyze the specified local image
+- Print the generated caption and detected objects to the console
+- Create an annotated version of the image with bounding boxes and labels
+
+The script will create a new file with "_annotated" suffix (e.g., `image_annotated.jpg`) containing the visualization of detected objects.
 
 ## Example Output
 
 ```
-Endpoint: https://<your-resource-name>.cognitiveservices.azure.com/
-Key: <your-key>
 Image analysis results:
+
 Caption:
-   'A group of people standing in a room', Confidence 0.9876
-Read:
-   Line: 'Welcome to the event', Bounding box [...]
-     Word: 'Welcome', Bounding polygon [...], Confidence 0.98
-     Word: 'to', Bounding polygon [...], Confidence 0.99
-     Word: 'the', Bounding polygon [...], Confidence 0.97
-     Word: 'event', Bounding polygon [...], Confidence 0.96
+ Caption: 'A group of people standing in a room' (confidence: 98.76%)
+
+Objects in image:
+ person (confidence: 92.50%)
+ person (confidence: 88.50%)
+ person (confidence: 76.30%)
+
+Annotated image saved as: image_annotated.jpg
 ```
 
 ## References
